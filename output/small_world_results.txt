@@ -1,0 +1,32 @@
+Six Degrees of Separation Simulation Results
+==================================================
+
+Network Type: small_world
+Number of nodes (N): 500
+Target average degree (k): 8
+Actual average degree: 7.98
+Total edges: 1996
+Network diameter: 8
+Average path length: 4.57
+Connectivity ratio: 1.000
+
+Reachability Analysis:
+------------------------------
+Within 1 degree(s):
+  Universal reachability: 0.0% (0/500 people can reach everyone)
+  Pair connectivity: 1.6% (1996/124750 pairs connected)
+Within 2 degree(s):
+  Universal reachability: 0.0% (0/500 people can reach everyone)
+  Pair connectivity: 5.3% (6560/124750 pairs connected)
+Within 3 degree(s):
+  Universal reachability: 0.0% (0/500 people can reach everyone)
+  Pair connectivity: 16.8% (20941/124750 pairs connected)
+Within 4 degree(s):
+  Universal reachability: 0.0% (0/500 people can reach everyone)
+  Pair connectivity: 42.8% (53372/124750 pairs connected)
+Within 5 degree(s):
+  Universal reachability: 0.0% (0/500 people can reach everyone)
+  Pair connectivity: 79.1% (98717/124750 pairs connected)
+Within 6 degree(s):
+  Universal reachability: 17.2% (86/500 people can reach everyone)
+  Pair connectivity: 97.6% (121737/124750 pairs connected)
