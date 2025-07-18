@@ -2,31 +2,31 @@ Six Degrees of Separation Simulation Results
 ==================================================
 
 Network Type: random
-Number of nodes (N): 500
+Number of nodes (N): 5000
 Target average degree (k): 8
-Actual average degree: 15.88
-Total edges: 3969
-Network diameter: 4
-Average path length: 2.56
+Actual average degree: 15.99
+Total edges: 39970
+Network diameter: 5
+Average path length: 3.39
 Connectivity ratio: 1.000
 
 Reachability Analysis:
 ------------------------------
 Within 1 degree(s):
-  Universal reachability: 0.0% (0/500 people can reach everyone)
-  Pair connectivity: 3.2% (3969/124750 pairs connected)
+  Universal reachability: 0.0% (0/5000 people can reach everyone)
+  Pair connectivity: 0.3% (39970/12497500 pairs connected)
 Within 2 degree(s):
-  Universal reachability: 0.0% (0/500 people can reach everyone)
-  Pair connectivity: 41.2% (51382/124750 pairs connected)
+  Universal reachability: 0.0% (0/5000 people can reach everyone)
+  Pair connectivity: 5.1% (642894/12497500 pairs connected)
 Within 3 degree(s):
-  Universal reachability: 66.6% (333/500 people can reach everyone)
-  Pair connectivity: 99.9% (124618/124750 pairs connected)
+  Universal reachability: 0.0% (0/5000 people can reach everyone)
+  Pair connectivity: 55.2% (6892949/12497500 pairs connected)
 Within 4 degree(s):
-  Universal reachability: 100.0% (500/500 people can reach everyone)
-  Pair connectivity: 100.0% (124750/124750 pairs connected)
+  Universal reachability: 78.9% (3947/5000 people can reach everyone)
+  Pair connectivity: 100.0% (12496576/12497500 pairs connected)
 Within 5 degree(s):
-  Universal reachability: 100.0% (500/500 people can reach everyone)
-  Pair connectivity: 100.0% (124750/124750 pairs connected)
+  Universal reachability: 100.0% (5000/5000 people can reach everyone)
+  Pair connectivity: 100.0% (12497500/12497500 pairs connected)
 Within 6 degree(s):
-  Universal reachability: 100.0% (500/500 people can reach everyone)
-  Pair connectivity: 100.0% (124750/124750 pairs connected)
+  Universal reachability: 100.0% (5000/5000 people can reach everyone)
+  Pair connectivity: 100.0% (12497500/12497500 pairs connected)

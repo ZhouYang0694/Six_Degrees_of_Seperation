@@ -222,21 +222,32 @@ def analyze_network_connectivity(edges: List[Tuple[int, int]], n: int) -> Dict:
         adj_list[edge[0]].append(edge[1])
         adj_list[edge[1]].append(edge[0])
     
-    # 找出所有连通分量
+    # 找出所有连通分量（使用迭代DFS避免递归深度限制）
     visited = [False] * n
     components = []
     
-    def dfs(node, component):
-        visited[node] = True
-        component.append(node)
-        for neighbor in adj_list[node]:
-            if not visited[neighbor]:
-                dfs(neighbor, component)
+    def iterative_dfs(start_node):
+        """迭代版本的DFS"""
+        component = []
+        stack = [start_node]
+        
+        while stack:
+            node = stack.pop()
+            if not visited[node]:
+                visited[node] = True
+                component.append(node)
+                
+                # 将所有未访问的邻居加入栈
+                for neighbor in adj_list[node]:
+                    if not visited[neighbor]:
+                        stack.append(neighbor)
+        
+        return component
     
+    # 对每个未访问的节点进行DFS
     for i in range(n):
         if not visited[i]:
-            component = []
-            dfs(i, component)
+            component = iterative_dfs(i)
             components.append(component)
     
     # 计算最大连通分量

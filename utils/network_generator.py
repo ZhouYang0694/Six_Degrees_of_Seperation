@@ -82,9 +82,20 @@ class NetworkGenerator:
                 edge = (min(i, neighbor), max(i, neighbor))
                 edges.add(edge)
         
-        # 随机重连边
+        # 优化的随机重连边过程
         edges_list = list(edges)
         rewired_edges = set()
+        
+        # 预先构建邻居字典以提高效率
+        neighbor_dict = {}
+        for edge in edges_list:
+            node1, node2 = edge
+            if node1 not in neighbor_dict:
+                neighbor_dict[node1] = set()
+            if node2 not in neighbor_dict:
+                neighbor_dict[node2] = set()
+            neighbor_dict[node1].add(node2)
+            neighbor_dict[node2].add(node1)
         
         for edge in edges_list:
             if random.random() < p:
@@ -93,13 +104,9 @@ class NetworkGenerator:
                 # 为node1选择一个新的随机邻居
                 possible_neighbors = list(range(self.n))
                 possible_neighbors.remove(node1)
-                # 移除已经连接的邻居
-                current_neighbors = {node2}
-                for e in rewired_edges:
-                    if e[0] == node1:
-                        current_neighbors.add(e[1])
-                    elif e[1] == node1:
-                        current_neighbors.add(e[0])
+                
+                # 移除已经连接的邻居（使用预构建的字典）
+                current_neighbors = neighbor_dict.get(node1, set()).copy()
                 
                 available_neighbors = [n for n in possible_neighbors 
                                      if n not in current_neighbors]
@@ -109,6 +116,12 @@ class NetworkGenerator:
                     new_edge = (min(node1, new_neighbor), 
                                max(node1, new_neighbor))
                     rewired_edges.add(new_edge)
+                    
+                    # 更新邻居字典
+                    neighbor_dict[node1].discard(node2)
+                    neighbor_dict[node2].discard(node1)
+                    neighbor_dict[node1].add(new_neighbor)
+                    neighbor_dict[new_neighbor].add(node1)
                 else:
                     rewired_edges.add(edge)
             else:
